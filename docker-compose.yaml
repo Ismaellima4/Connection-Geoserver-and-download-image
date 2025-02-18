@@ -1,0 +1,11 @@
+services:
+  geoserver:
+    image: kartoza/geoserver:latest
+    ports:
+      - "8080:8080"
+    environment:
+      GEOSERVER_ADMIN: admin
+      GEOSERVER_ADMIN_PASSWORD: secret
+    volumes:
+      - ./shapefiles:/opt/geoserver/data_dir/workspaces/ismael/shapefiles
+    restart: unless-stopped
